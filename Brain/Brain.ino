@@ -1,18 +1,14 @@
-#include "Brain.h"
-#include "DicisionButton.h"
+#include<Arduino.h>
 #include "AnotherTerminal.h"
 
-//ToDo 後でボタン確認
-DicisionButton btn = DicisionButton(int BTN_PIN1, BTN_MODE D_READ); /* 時間 */
-
+Bluetoothset BlueTooth;
 
 void setup() {
-  //電池を入れると電源が入りBluetooth接続
-  //read()でメインのBluetoothからデータを取得する
-  //Serial.begin()で子機のBluetoothとの通信速度(データ通信レート)を決める
+  // put your setup code here, to run once:
+  AnotherTerminal.Bluetooth_setUp();
 }
 
 void loop() {
-  //ボタンが押されたかを検知？
-  
+  // put your main code here, to run repeatedly:
+  AnotherTerminal.Bluetooth_transmission();
 }
