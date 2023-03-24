@@ -1,5 +1,6 @@
 #pragma once
 #include "AnotherTerminal.h"
+#include "BluetoothSerial.h"
 
 
 
@@ -10,5 +11,5 @@ class AnotherTerminal{
 
   public:
   void Bluetooth_setUp();
-  void Bluetooth_transmission();
+  void Bluetooth_transmission(int Bluetooth_judgment);
 };

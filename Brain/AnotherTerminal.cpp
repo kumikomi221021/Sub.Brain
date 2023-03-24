@@ -1,6 +1,7 @@
 #include "AnotherTerminal.h"
+#include "BluetoothSerial.h"
 
-AnotherTerminal SerialBT;
+BluetoothSerial SerialBT;
 
 String MACadd = "3C:71:BF:99:52:AA";
 uint8_t address[6]  = {0x3C, 0x71, 0xBF, 0x99, 0x52, 0xAA};
@@ -33,7 +34,7 @@ void AnotherTerminal::Bluetooth_setUp() {
   SerialBT.connect();
 
   pinMode( 2, OUTPUT);
-  pinMode(14, INPUT_PULLUP);
+//  pinMode(14, INPUT_PULLUP);
 
   // Sign for the end of bluetooth setup.
   for (int i=0; i<3; i++) {
@@ -45,9 +46,9 @@ void AnotherTerminal::Bluetooth_setUp() {
 }
 
 //ピン番号は変更なります
-void  AnotherTerminal::Bluetooth_transmission() {
-  if (digitalRead(14) == LOW) {
-    Serial.println("LED is ON.");
+void  AnotherTerminal::Bluetooth_transmission(int Bluetooth_judgment) {
+  if (Bluetooth_judgment == 0) {
+    //Serial.println("LED is ON.");
     SerialBT.write('T');
   }
   delay(20);

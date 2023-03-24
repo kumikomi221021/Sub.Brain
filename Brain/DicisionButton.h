@@ -1,10 +1,16 @@
 #pragma once
 
-class DicisionButton{
+typedef enum {
+  D_READ,
+  INTERRPUT
+} BTN_MODE;
+
+class DicisionButton {
 
   private:
-  int PinNumber;
+    int PinNumber;
 
   public:
-  int subPush();
-}
+    DicisionButton(int button_pin, BTN_MODE mode, void*function);
+    int Read();
+};
